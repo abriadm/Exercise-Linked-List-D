@@ -13,6 +13,8 @@
         {
             LAST = null;
         }
+        // Perubahan 1
+        /* Menambah method addNote untuk input data */
         public void addNote() // add node in the list
         {
             int rollNo;
@@ -80,22 +82,19 @@
             else
                 return (false);
         }
+        // Perubahan 2
+        /* Mengubah algortma travers yang bug */
         public void traverse()
         {
             if (listEmpty())
                 Console.WriteLine("\nList is empty");
             else
             {
-                Console.WriteLine("\nRecords in the list are: \n");
+                Console.WriteLine("\nThe records in the list are: ");
                 Node currentNode;
-                currentNode = LAST.next;
-                while(currentNode != LAST)
-                {
-                    Console.Write(currentNode.rollNumber + " " +
-                        currentNode.name + "\n");
-                    currentNode = currentNode.next;
-                }
-                Console.Write(LAST.rollNumber + " " + LAST.name + "\n");
+                for (currentNode = LAST; currentNode != null; currentNode = currentNode.next)
+                    Console.Write(currentNode.rollNumber + " " + currentNode.name + "\n");
+                Console.WriteLine();
             }
         }
         public void firstNode()
